@@ -129,12 +129,18 @@ public class TemperatureSeriesAnalysis {
     public int addTemps(double... temps) {
         double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);
         int t = 0;
+
         for (int i = this.temperatures.length; i < addedTemp.length; i++){
             addedTemp[i] = temps[t];
-            t++;
+            t += 1;
         }
         this.temperatures = addedTemp;
-        return t;
+        int summ = 0;
+        for (int j = 0; j < addedTemp.length; j ++){
+            System.out.print(addedTemp[j]);
+            summ += addedTemp[j];
+        }
+        return summ;
     }
 
 }

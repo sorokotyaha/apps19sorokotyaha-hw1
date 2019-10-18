@@ -122,19 +122,27 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-<span class="nc" id="L125">        return new TempSummaryStatistics(this.average(), this.deviation(),</span>
-<span class="nc" id="L126">                this.min(), this.max());</span>
+<span class="fc" id="L125">        return new TempSummaryStatistics(this.average(), this.deviation(),</span>
+<span class="fc" id="L126">                this.min(), this.max());</span>
     }
 
     public int addTemps(double... temps) {
-<span class="nc" id="L130">        double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);</span>
-<span class="nc" id="L131">        int t = 0;</span>
-<span class="nc bnc" id="L132" title="All 2 branches missed.">        for (int i = this.temperatures.length; i &lt; addedTemp.length; i++){</span>
-<span class="nc" id="L133">            addedTemp[i] = temps[t];</span>
-<span class="nc" id="L134">            t++;</span>
+<span class="fc" id="L130">        double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);</span>
+<span class="fc" id="L131">        int t = 0;</span>
+
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        for (int i = this.temperatures.length; i &lt; addedTemp.length; i++){</span>
+<span class="fc" id="L134">            addedTemp[i] = temps[t];</span>
+<span class="fc" id="L135">            t += 1;</span>
         }
-<span class="nc" id="L136">        this.temperatures = addedTemp;</span>
-<span class="nc" id="L137">        return t;</span>
+
+<span class="fc" id="L138">        this.temperatures = addedTemp;</span>
+<span class="fc" id="L139">        int summ = 0;</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        for (int j = 0; j &lt; addedTemp.length; j ++){</span>
+<span class="fc" id="L141">            System.out.print(addedTemp[j]);</span>
+<span class="fc" id="L142">            summ += addedTemp[j];</span>
+        }
+
+<span class="fc" id="L145">        return summ;</span>
     }
 
 }

@@ -157,9 +157,6 @@ public class TemperatureSeriesAnalysisTest {
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
 
         double[] actualResult = seriesAnalysis.findTempsGreaterThen(5);
-        for (int k = 0; k < actualResult.length; k++){
-            System.out.print(actualResult[k]);}
-
 
         double[] expected = {5};
 
@@ -167,10 +164,25 @@ public class TemperatureSeriesAnalysisTest {
     }
 
     @Test
-    public void summaryStatistics() {
+    public void testsummaryStatistics() {
+        double[] testSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
+
+        double actualResult = seriesAnalysis.summaryStatistics().getAvgTemp();
+        double expected = 1.0;
+        assertEquals(expected, actualResult, 0.0001);
     }
 
     @Test
-    public void addTemps() {
+    public void testaddTemps() {
+        double[] testSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
+
+        double[] toAdd = {0, 1, 1, 2};
+        double actualResult = seriesAnalysis.addTemps(toAdd);
+
+        double expected = 8.0;
+
+        assertEquals(expected, actualResult, 0.0001);
     }
 }
