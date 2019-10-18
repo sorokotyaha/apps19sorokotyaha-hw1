@@ -2,6 +2,7 @@ package ua.edu.ucu.tempseries;
 
 import java.lang.Math;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatures;
@@ -9,6 +10,16 @@ public class TemperatureSeriesAnalysis {
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         this.temperatures = temperatureSeries;
     }
+
+    public void TemperatureSeriesAnalysis(double[] temperatureSeries) {
+        for (int i = 0; i < temperatureSeries.length; i++) {
+            if (temperatureSeries[i] < -273.0) {
+                throw new InputMismatchException();
+            }
+        }
+    }
+
+
 
     public double average() {
         int count = 0;
@@ -23,15 +34,14 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         double av = this.average();
         double summ = 0;
-        int count = 0;
         for (int i = 0; i < this.temperatures.length; i++) {
             summ += Math.pow(this.temperatures[i] - av, 2);
-            count += 1;
         }
-        return Math.sqrt(summ / count);
+        return Math.sqrt(summ / this.temperatures.length);
     }
 
     public double min() {
+
         double min = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
             if (this.temperatures[i] < min){
@@ -108,6 +118,6 @@ public class TemperatureSeriesAnalysis {
         this.temperatures = addedTemp;
         return t;
     }
-    
+
 }
 
