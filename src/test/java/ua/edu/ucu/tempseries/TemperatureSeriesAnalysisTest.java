@@ -20,7 +20,7 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);
     }
 
-    @Test(expected = IllegalArgumentException.class) @Ignore
+    @Test(expected = IllegalArgumentException.class)
     public void testAverageWithEmptyArray() {
         double[] temperatureSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
@@ -40,7 +40,7 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);        
     }
 
-    @Test(expected = IllegalArgumentException.class) @Ignore
+    @Test(expected = IllegalArgumentException.class)
     public void testDeviationWithEmptyArray(){
         double[] testSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
@@ -82,11 +82,17 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(-1.0, actualResult, 0.00001);
     }
 
-
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinWithEmptyArray(){
+        double[] testSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
+        //should throw exception here
+        seriesAnalysis.min();
+    }
 
 
     @Test
-    public void testmin() {
+    public void testMin() {
         double[] testSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
 
@@ -95,6 +101,13 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(-5.0, actualResult, 0.00001);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxWithEmptyArray(){
+        double[] testSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
+        //should throw exception here
+        seriesAnalysis.max();
+    }
 
     @Test
     public void testMaxWithOneElement() {
@@ -110,13 +123,21 @@ public class TemperatureSeriesAnalysisTest {
     }
 
     @Test
-    public void testmax() {
+    public void testMax() {
         double[] testSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
 
         double actualResult = seriesAnalysis.max();
 
         assertEquals(5, actualResult, 0.00001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindTempClosestToZeroWithEmptyArray(){
+        double[] testSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(testSeries);
+        //should throw exception here
+        seriesAnalysis.findTempClosestToZero();
     }
 
     @Test

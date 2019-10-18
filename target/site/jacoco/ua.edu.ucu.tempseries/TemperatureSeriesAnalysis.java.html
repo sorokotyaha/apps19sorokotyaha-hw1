@@ -19,130 +19,140 @@ public class TemperatureSeriesAnalysis {
         }
 <span class="nc" id="L20">    }</span>
 
-
+    private void checkArray(){
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (temperatures.length &lt; 1){</span>
+<span class="fc" id="L24">            throw new IllegalArgumentException();</span>
+        }
+<span class="fc" id="L26">    }</span>
 
     public double average() {
-<span class="fc" id="L25">        int count = 0;</span>
-<span class="fc" id="L26">        double summ = 0;</span>
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
-<span class="fc" id="L28">            summ += this.temperatures[i];</span>
-<span class="fc" id="L29">            count += 1;</span>
+<span class="fc" id="L29">        checkArray();</span>
+<span class="fc" id="L30">        int count = 0;</span>
+<span class="fc" id="L31">        double summ = 0;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
+<span class="fc" id="L33">            summ += this.temperatures[i];</span>
+<span class="fc" id="L34">            count += 1;</span>
         }
-<span class="fc" id="L31">        return summ / count;</span>
+<span class="fc" id="L36">        return summ / count;</span>
     }
 
     public double deviation() {
-<span class="fc" id="L35">        double av = this.average();</span>
-<span class="fc" id="L36">        double summ = 0;</span>
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++) {</span>
-<span class="fc" id="L38">            summ += Math.pow(this.temperatures[i] - av, 2);</span>
+<span class="fc" id="L40">        checkArray();</span>
+<span class="fc" id="L41">        double av = this.average();</span>
+<span class="fc" id="L42">        double summ = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++) {</span>
+<span class="fc" id="L44">            summ += Math.pow(this.temperatures[i] - av, 2);</span>
         }
-<span class="fc" id="L40">        return Math.sqrt(summ / this.temperatures.length);</span>
+<span class="fc" id="L46">        return Math.sqrt(summ / this.temperatures.length);</span>
     }
 
     public double min() {
-
-<span class="fc" id="L45">        double min = this.temperatures[0];</span>
-<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
-<span class="fc bfc" id="L47" title="All 2 branches covered.">            if (this.temperatures[i] &lt; min){</span>
-<span class="fc" id="L48">                min = this.temperatures[i];</span>
+<span class="fc" id="L50">        checkArray();</span>
+<span class="fc" id="L51">        double min = this.temperatures[0];</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (this.temperatures[i] &lt; min){</span>
+<span class="fc" id="L54">                min = this.temperatures[i];</span>
             }
         }
-<span class="fc" id="L51">        return min;</span>
+<span class="fc" id="L57">        return min;</span>
     }
 
     public double max() {
-<span class="fc" id="L55">        double maxx = this.temperatures[0];</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
-<span class="fc bfc" id="L57" title="All 2 branches covered.">            if (this.temperatures[i] &gt; maxx){</span>
-<span class="fc" id="L58">                maxx = this.temperatures[i];</span>
+<span class="fc" id="L61">        checkArray();</span>
+<span class="fc" id="L62">        double maxx = this.temperatures[0];</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">            if (this.temperatures[i] &gt; maxx){</span>
+<span class="fc" id="L65">                maxx = this.temperatures[i];</span>
             }
         }
-<span class="fc" id="L61">        return maxx;</span>
+<span class="fc" id="L68">        return maxx;</span>
     }
 
     public double findTempClosestToZero() {
-<span class="fc" id="L65">        double minDiff = Math.abs(this.temperatures[0]);</span>
-<span class="fc" id="L66">        double minTemp = this.temperatures[0];</span>
-<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (minDiff &gt; Math.abs(this.temperatures[i])){</span>
-<span class="fc" id="L69">                minTemp = Math.abs(this.temperatures[i]);</span>
+<span class="fc" id="L72">        checkArray();</span>
+<span class="fc" id="L73">        double minDiff = Math.abs(this.temperatures[0]);</span>
+<span class="fc" id="L74">        double minTemp = this.temperatures[0];</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (minDiff &gt; Math.abs(this.temperatures[i])){</span>
+<span class="fc" id="L77">                minTemp = Math.abs(this.temperatures[i]);</span>
             }
         }
-<span class="fc" id="L72">        return minTemp;</span>
+<span class="fc" id="L80">        return minTemp;</span>
     }
 
     public double findTempClosestToValue(double tempValue) {
-<span class="fc" id="L76">        double minDiff = Math.abs(tempValue - this.temperatures[0]);</span>
-<span class="fc" id="L77">        double minTemp = this.temperatures[0];</span>
-<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">            if (minDiff &gt; Math.abs(tempValue - this.temperatures[i])){</span>
-<span class="fc" id="L80">                minTemp = this.temperatures[i];</span>
+<span class="fc" id="L84">        checkArray();</span>
+<span class="fc" id="L85">        double minDiff = Math.abs(tempValue - this.temperatures[0]);</span>
+<span class="fc" id="L86">        double minTemp = this.temperatures[0];</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        for (int i = 1; i &lt; this.temperatures.length; i++){</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            if (minDiff &gt; Math.abs(tempValue - this.temperatures[i])){</span>
+<span class="fc" id="L89">                minTemp = this.temperatures[i];</span>
             }
         }
-<span class="fc" id="L83">        return minTemp;</span>
+<span class="fc" id="L92">        return minTemp;</span>
     }
 
     public double[] findTempsLessThen(double tempValue) {
-<span class="fc" id="L87">        int count = 0;</span>
+<span class="fc" id="L96">        checkArray();</span>
+<span class="fc" id="L97">        int count = 0;</span>
 
-<span class="fc bfc" id="L89" title="All 2 branches covered.">        for (int j = 0; j &lt; this.temperatures.length; j++){</span>
-<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (this.temperatures[j] &lt; tempValue){</span>
-<span class="fc" id="L91">                count += 1;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (int j = 0; j &lt; this.temperatures.length; j++) {</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            if (this.temperatures[j] &lt; tempValue){</span>
+<span class="fc" id="L101">                count += 1;</span>
             }
         }
 
-<span class="fc" id="L95">        double[] less = new double[count];</span>
-<span class="fc" id="L96">        int z = 0;</span>
-<span class="fc bfc" id="L97" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
-<span class="pc bpc" id="L98" title="1 of 4 branches missed.">            if (this.temperatures[i] &lt; tempValue &amp;&amp; z &lt; count){</span>
-<span class="fc" id="L99">                less[z] = this.temperatures[i];</span>
-<span class="fc" id="L100">                z += 1;</span>
+<span class="fc" id="L105">        double[] less = new double[count];</span>
+<span class="fc" id="L106">        int z = 0;</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
+<span class="pc bpc" id="L108" title="1 of 4 branches missed.">            if (this.temperatures[i] &lt; tempValue &amp;&amp; z &lt; count){</span>
+<span class="fc" id="L109">                less[z] = this.temperatures[i];</span>
+<span class="fc" id="L110">                z += 1;</span>
             }
         }
-<span class="fc" id="L103">        return less;</span>
+<span class="fc" id="L113">        return less;</span>
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-<span class="fc" id="L107">        int count = 0;</span>
-<span class="fc bfc" id="L108" title="All 2 branches covered.">        for (int j = 0; j &lt; this.temperatures.length; j++){</span>
-<span class="fc bfc" id="L109" title="All 2 branches covered.">            if (this.temperatures[j] &gt;= tempValue){</span>
-<span class="fc" id="L110">                count += 1;</span>
+<span class="fc" id="L117">        checkArray();</span>
+<span class="fc" id="L118">        int count = 0;</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        for (int j = 0; j &lt; this.temperatures.length; j++){</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">            if (this.temperatures[j] &gt;= tempValue){</span>
+<span class="fc" id="L121">                count += 1;</span>
             }
         }
-<span class="fc" id="L113">        double[] greater = new double[count];</span>
-<span class="fc" id="L114">        int z = 0;</span>
-<span class="fc bfc" id="L115" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
-<span class="pc bpc" id="L116" title="1 of 4 branches missed.">            if (this.temperatures[i] &gt;= tempValue &amp;&amp; z &lt; count){</span>
-<span class="fc" id="L117">                greater[z] = this.temperatures[i];</span>
-<span class="fc" id="L118">                z += 1;</span>
+<span class="fc" id="L124">        double[] greater = new double[count];</span>
+<span class="fc" id="L125">        int z = 0;</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        for (int i = 0; i &lt; this.temperatures.length; i++){</span>
+<span class="pc bpc" id="L127" title="1 of 4 branches missed.">            if (this.temperatures[i] &gt;= tempValue &amp;&amp; z &lt; count){</span>
+<span class="fc" id="L128">                greater[z] = this.temperatures[i];</span>
+<span class="fc" id="L129">                z += 1;</span>
             }
         }
-<span class="fc" id="L121">        return greater;</span>
+<span class="fc" id="L132">        return greater;</span>
     }
 
     public TempSummaryStatistics summaryStatistics() {
-<span class="fc" id="L125">        return new TempSummaryStatistics(this.average(), this.deviation(),</span>
-<span class="fc" id="L126">                this.min(), this.max());</span>
+<span class="fc" id="L136">        return new TempSummaryStatistics(this.average(), this.deviation(),</span>
+<span class="fc" id="L137">                this.min(), this.max());</span>
     }
 
     public int addTemps(double... temps) {
-<span class="fc" id="L130">        double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);</span>
-<span class="fc" id="L131">        int t = 0;</span>
+<span class="fc" id="L141">        checkArray();</span>
+<span class="fc" id="L142">        double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);</span>
+<span class="fc" id="L143">        int t = 0;</span>
 
-<span class="fc bfc" id="L133" title="All 2 branches covered.">        for (int i = this.temperatures.length; i &lt; addedTemp.length; i++){</span>
-<span class="fc" id="L134">            addedTemp[i] = temps[t];</span>
-<span class="fc" id="L135">            t += 1;</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        for (int i = this.temperatures.length; i &lt; addedTemp.length; i++){</span>
+<span class="fc" id="L146">            addedTemp[i] = temps[t];</span>
+<span class="fc" id="L147">            t += 1;</span>
         }
-
-<span class="fc" id="L138">        this.temperatures = addedTemp;</span>
-<span class="fc" id="L139">        int summ = 0;</span>
-<span class="fc bfc" id="L140" title="All 2 branches covered.">        for (int j = 0; j &lt; addedTemp.length; j ++){</span>
-<span class="fc" id="L141">            System.out.print(addedTemp[j]);</span>
-<span class="fc" id="L142">            summ += addedTemp[j];</span>
+<span class="fc" id="L149">        this.temperatures = addedTemp;</span>
+<span class="fc" id="L150">        int summ = 0;</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        for (int j = 0; j &lt; addedTemp.length; j ++){</span>
+<span class="fc" id="L152">            System.out.print(addedTemp[j]);</span>
+<span class="fc" id="L153">            summ += addedTemp[j];</span>
         }
-
-<span class="fc" id="L145">        return summ;</span>
+<span class="fc" id="L155">        return summ;</span>
     }
 
 }

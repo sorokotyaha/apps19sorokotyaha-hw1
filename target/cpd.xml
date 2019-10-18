@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
    <duplication lines="4" tokens="41">
-      <file line="65"
+      <file line="73"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
-      <file line="76"
+      <file line="85"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
       <codefragment><![CDATA[        double minDiff = Math.abs(this.temperatures[0]);
         double minTemp = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
             if (minDiff > Math.abs(this.temperatures[i])){]]></codefragment>
    </duplication>
-   <duplication lines="4" tokens="35">
+   <duplication lines="6" tokens="37">
       <file line="95"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
-      <file line="113"
+      <file line="116"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <codefragment><![CDATA[    public double[] findTempsLessThen(double tempValue) {
+        checkArray();
+        int count = 0;
+
+        for (int j = 0; j < this.temperatures.length; j++) {
+            if (this.temperatures[j] < tempValue){]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="35">
+      <file line="105"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <file line="124"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
       <codefragment><![CDATA[        double[] less = new double[count];
         int z = 0;
         for (int i = 0; i < this.temperatures.length; i++){
             if (this.temperatures[i] < tempValue && z < count){]]></codefragment>
    </duplication>
-   <duplication lines="5" tokens="34">
-      <file line="86"
-            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
-      <file line="106"
-            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
-      <codefragment><![CDATA[    public double[] findTempsLessThen(double tempValue) {
-        int count = 0;
-
-        for (int j = 0; j < this.temperatures.length; j++){
-            if (this.temperatures[j] < tempValue){]]></codefragment>
-   </duplication>
    <duplication lines="3" tokens="32">
-      <file line="45"
+      <file line="51"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
-      <file line="55"
+      <file line="62"
             path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
       <codefragment><![CDATA[        double min = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){

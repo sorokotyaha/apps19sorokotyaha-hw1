@@ -19,9 +19,14 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
-
+    private void checkArray(){
+        if (temperatures.length < 1){
+            throw new IllegalArgumentException();
+        }
+    }
 
     public double average() {
+        checkArray();
         int count = 0;
         double summ = 0;
         for (int i = 0; i < this.temperatures.length; i++){
@@ -32,6 +37,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
+        checkArray();
         double av = this.average();
         double summ = 0;
         for (int i = 0; i < this.temperatures.length; i++) {
@@ -41,7 +47,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-
+        checkArray();
         double min = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
             if (this.temperatures[i] < min){
@@ -52,6 +58,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
+        checkArray();
         double maxx = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
             if (this.temperatures[i] > maxx){
@@ -62,6 +69,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
+        checkArray();
         double minDiff = Math.abs(this.temperatures[0]);
         double minTemp = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
@@ -73,6 +81,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
+        checkArray();
         double minDiff = Math.abs(tempValue - this.temperatures[0]);
         double minTemp = this.temperatures[0];
         for (int i = 1; i < this.temperatures.length; i++){
@@ -84,9 +93,10 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
+        checkArray();
         int count = 0;
 
-        for (int j = 0; j < this.temperatures.length; j++){
+        for (int j = 0; j < this.temperatures.length; j++) {
             if (this.temperatures[j] < tempValue){
                 count += 1;
             }
@@ -104,6 +114,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
+        checkArray();
         int count = 0;
         for (int j = 0; j < this.temperatures.length; j++){
             if (this.temperatures[j] >= tempValue){
@@ -127,6 +138,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
+        checkArray();
         double[] addedTemp = Arrays.copyOf(this.temperatures, this.temperatures.length + temps.length);
         int t = 0;
 
