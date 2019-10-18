@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ua.edu.ucu.tempseries.TemperatureSeriesAnalysisTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.094 sec
