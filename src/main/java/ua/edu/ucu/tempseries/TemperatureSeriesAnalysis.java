@@ -108,6 +108,8 @@ public class TemperatureSeriesAnalysis {
         return ;
     }
 
-    public double summ()
+    public double summ(){
+        int s = 12;
+    }
 }
 
