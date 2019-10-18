@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd-cpd/>
+<pmd-cpd>
+   <duplication lines="4" tokens="41">
+      <file line="65"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <file line="76"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <codefragment><![CDATA[        double minDiff = Math.abs(this.temperatures[0]);
+        double minTemp = this.temperatures[0];
+        for (int i = 1; i < this.temperatures.length; i++){
+            if (minDiff > Math.abs(this.temperatures[i])){]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="35">
+      <file line="95"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <file line="113"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <codefragment><![CDATA[        double[] less = new double[count];
+        int z = 0;
+        for (int i = 0; i < this.temperatures.length; i++){
+            if (this.temperatures[i] < tempValue && z < count){]]></codefragment>
+   </duplication>
+   <duplication lines="5" tokens="34">
+      <file line="86"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <file line="106"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <codefragment><![CDATA[    public double[] findTempsLessThen(double tempValue) {
+        int count = 0;
+
+        for (int j = 0; j < this.temperatures.length; j++){
+            if (this.temperatures[j] < tempValue){]]></codefragment>
+   </duplication>
+   <duplication lines="3" tokens="32">
+      <file line="45"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <file line="55"
+            path="C:\Users\User\Desktop\apps19Sorokotyaha-hw1\apps19Sorokotyaha-hw1\src\main\java\ua\edu\ucu\tempseries\TemperatureSeriesAnalysis.java"/>
+      <codefragment><![CDATA[        double min = this.temperatures[0];
+        for (int i = 1; i < this.temperatures.length; i++){
+            if (this.temperatures[i] < min){]]></codefragment>
+   </duplication>
+</pmd-cpd>
